@@ -5,10 +5,10 @@ TEAM_TOKEN = ""
 NPC_IP = ""
 
 # Can be untouched
-FLAG_POST_TIMEOUT = 1  # in seconds
 LOG_FILENAME = ""
 LOG_LEVEL = 2
-MAX_FLAG_PACK_LENGTH = 100
+FLAG_POST_TIMEOUT = 1  # in seconds
+FLAG_PACK_MAX_LENGTH = 100
 FLAG_STORE_PATH = "resources/flag.json"
 
 # Generated
