@@ -12,14 +12,15 @@ class FlagPoster:
         self.posted_flags = set()
         self.error_flags = list()
         self.log = Logger("FlagPoster")
+        self.deserialize()
 
     def deserialize(self):
-        if os.path.exists("resources/flag.json"):
-            with open("resources/flag.json", "w+") as file:
+        if os.path.exists(FLAG_STORE_PATH):
+            with open(FLAG_STORE_PATH, "w+") as file:
                 self.posted_flags = set(json.load(file))
 
     def serialize(self):
-        with open("resources/flag.json", "w+") as file:
+        with open(FLAG_STORE_PATH, "w+") as file:
             json.dump(self.posted_flags, file)
 
     def try_to_send_mistakes(self):
@@ -44,8 +45,8 @@ class FlagPoster:
             self.posted_flags.add(flag)
 
         success_flags = 0
-        for i in range(0, len(not_posted_flags), MAX_FLAG_PACK_LENGTH):
-            current_pack_of_flags = not_posted_flags[i : min(i + MAX_FLAG_PACK_LENGTH, len(not_posted_flags))]
+        for i in range(0, len(not_posted_flags), FLAG_PACK_MAX_LENGTH):
+            current_pack_of_flags = not_posted_flags[i : min(i + FLAG_PACK_MAX_LENGTH, len(not_posted_flags))]
             resp = self.post_pack_of_flags(
                 current_pack_of_flags
             )
