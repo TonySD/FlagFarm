@@ -4,11 +4,14 @@ ROUND_TIMER = -1
 TEAM_TOKEN = ""
 
 # Can be untouched
+FLAG_POST_TIMEOUT = 1  # in seconds
 LOG_FILENAME = ""
 LOG_LEVEL = 2
+MAX_FLAG_PACK_LENGTH = 100
 
 # Generated
 FLAG_POST_URL = f"http://{BOARD_URL}/flags"
+HEADER_FOR_POST = {'X-Team-Token': TEAM_TOKEN, 'Content-Type':'Application/json'}
 
 # Constant
 FLAG_LENGTH = 32
