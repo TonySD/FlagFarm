@@ -3,6 +3,7 @@ from exploits import *
 import Logger
 import FlagPoster
 from config import *
+import time
 
 TEAMS = [
         Team("NPC", NPC_IP)
@@ -28,6 +29,7 @@ def endlessLoop(teams: list, exploits: list, flag_poster: FlagPoster):
             log.info(f"Got {successful_flag_from_team} flags from {team.name}")
             successful_flag_on_iteration += successful_flag_from_team
         log.info(f"-------------------\n", "Got {successful_flag_from_team} flags from {team.name}\n", "-------------------")
+        time.sleep(ROUND_TIMER)
         
 
         
