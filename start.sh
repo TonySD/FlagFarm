@@ -1,1 +1,2 @@
-python3 /flagfarm/main.py
+pip install -r requirements.txt
+python3 ./flagfarm/main.py
